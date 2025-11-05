@@ -1,0 +1,180 @@
+.hero {
+  position: relative;
+  height: 85vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.backdropImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.backdropPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    transparent 100%
+  ),
+  linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 70%,
+    rgba(10, 10, 15, 0.8) 90%,
+    rgba(10, 10, 15, 1) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+.info {
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.rating {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+.year,
+.duration {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.detailItem {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.detailLabel {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.detailValue {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+    min-height: 500px;
+  }
+
+  .content {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .meta {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.7) 50%,
+      rgba(10, 10, 15, 0.9) 90%,
+      rgba(10, 10, 15, 1) 100%
+    );
+  }
+}

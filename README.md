@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 CineRegion - Региональный Стриминговый Сервис
 
-## Getting Started
+Современный видео-стриминговый сервис для региональных и инди-фильмов, созданный с использованием Next.js 16, CSS Modules и Zustand.
 
-First, run the development server:
+## ✨ Особенности
+
+- 🎨 **Современный UI/UX** - Минималистичный дизайн в стиле Netflix
+- 📱 **Полностью адаптивный** - Работает на всех устройствах
+- ⚡ **Next.js 16** - Server Components, App Router
+- 🎭 **CSS Modules** - Модульная изолированная стилизация
+- 🗃️ **Zustand** - Легковесное управление состоянием
+- 🎥 **Видео плеер** - Кастомный плеер с прогрессом просмотра
+- ⭐ **Watchlist** - Персональный список фильмов
+- 🔍 **Поиск** - Быстрый поиск по фильмам
+- 🎯 **Фильтры** - Фильтрация по жанрам
+
+## 🏗️ Архитектура
+
+Проект построен с упором на модульность и расширяемость:
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── browse/            # Страница каталога
+│   ├── movies/[id]/       # Страница деталей фильма
+│   ├── watch/[id]/        # Страница просмотра
+│   └── watchlist/         # Личный список
+├── components/            # React компоненты
+│   ├── layout/           # Layout компоненты (Header)
+│   ├── movie/            # Movie компоненты (Card, Row, Hero)
+│   ├── player/           # Video player
+│   └── ui/               # UI компоненты (Button, Loading)
+├── store/                # Zustand stores
+│   ├── useMovieStore.ts  # Состояние фильмов
+│   └── useUserStore.ts   # Пользовательские данные
+├── lib/                  # Утилиты и API
+│   ├── api/             # Mock API
+│   ├── data/            # Mock данные
+│   └── utils/           # Вспомогательные функции
+└── types/               # TypeScript типы
+```
+
+## 🚀 Быстрый старт
+
+### Установка
+
+```bash
+npm install
+```
+
+### Запуск dev сервера
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Сборка для production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🛠️ Технологии
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js 16, React 19, TypeScript
+- **Стилизация**: CSS Modules
+- **Состояние**: Zustand
+- **Изображения**: Next/Image с оптимизацией
+- **Шрифты**: Inter (Google Fonts)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Компоненты
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Layout
 
-## Deploy on Vercel
+- **Header** - Навигация, поиск, профиль
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Movie
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Hero** - Большой баннер на главной
+- **MovieCard** - Карточка фильма
+- **MovieRow** - Горизонтальный ряд фильмов
+
+### Player
+
+- **VideoPlayer** - Кастомный видео плеер с контролами
+
+### UI
+
+- **Button** - Переиспользуемая кнопка
+- **Loading** - Индикатор загрузки
+
+## 🎨 Дизайн системы
+
+### Цветовая палитра
+
+- Primary: `#667eea` → `#764ba2` (градиент)
+- Background: `#0a0a0f`
+- Surface: `#1a1a24`
+- Text: `#ffffff`
+
+### Отступы и размеры
+
+- Container max-width: `1400px`
+- Padding: `40px` (desktop), `20px` (mobile)
+- Border radius: `6px`, `12px`
+
+## 📝 API (Mock)
+
+Backend в данный момент моковый. Все данные находятся в `src/lib/data/movies.ts`.
+
+### Доступные методы:
+
+```typescript
+moviesApi.getCategories()
+moviesApi.getFeaturedMovies()
+moviesApi.getMovieById(id)
+moviesApi.searchMovies(query)
+moviesApi.getMoviesByGenre(genre)
+moviesApi.getSimilarMovies(movieId)
+moviesApi.getAllMovies()
+```
+
+## 🔄 Состояние (Zustand)
+
+### Movie Store
+
+Управление каталогом фильмов, поиском, текущим фильмом.
+
+### User Store
+
+Управление watchlist и прогрессом просмотра (с персистентностью в localStorage).
+
+## 🚧 Roadmap
+
+- [ ] Интеграция с реальным backend
+- [ ] Аутентификация пользователей
+- [ ] Комментарии и рейтинги
+- [ ] Рекомендации на основе ML
+- [ ] Субтитры и множественные языки
+- [ ] Offline режим (PWA)
+
+## 📄 Лицензия
+
+MIT
+
+## 👨‍💻 Автор
+
+Создано с использованием Next.js 16 и лучших практик разработки.
