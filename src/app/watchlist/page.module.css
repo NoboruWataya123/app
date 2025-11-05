@@ -1,0 +1,92 @@
+.container {
+  min-height: 100vh;
+  padding: 100px 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 40px 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+}
+
+.emptyIcon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.emptyTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.emptyText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 24px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.cardWrapper {
+  position: relative;
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 80px 20px 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
